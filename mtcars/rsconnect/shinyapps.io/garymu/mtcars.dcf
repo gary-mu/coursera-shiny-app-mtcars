@@ -1,0 +1,12 @@
+name: mtcars
+title: mtcars
+username:
+account: garymu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 246848
+bundleId: 1126349
+url: https://garymu.shinyapps.io/mtcars/
+when: 1512923969.04782
+asMultiple: FALSE
+asStatic: FALSE

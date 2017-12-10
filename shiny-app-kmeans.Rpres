@@ -1,0 +1,71 @@
+
+Mtcars Kmeans Cluster
+========================================================
+author: Gary Mu
+date: Dec 10 , 2017
+autosize: true
+
+Questions
+========================================================
+
+Mtcars data sets contains 32 different cars and their attributes
+like:
+
+- Mpg (miles per gallon)
+- Cyl: Cylinder
+- Wt (weight of cars)
+
+...
+etc
+
+I intend to use these attributes to help identify what kinds of cars are close to
+each other using Kmeans clusters based on the attributes selected.
+This is motivated by finding out how different cars are "like" each other based on
+the attributes we are interested in.
+
+Mtcars Data Set
+========================================================
+
+```{r}
+head(mtcars)
+```
+
+
+What should the app do?
+========================================================
+
+- With the app, users will be able to cluster cars based on the
+attributes they are interested in -- for example, what kind of cars are close together
+based on MPG & Cylinders.
+
+- Users will be able to choose the number of clusters (groups) to group the cars,
+and the cars in the same cluster will be in the same color
+
+How to use the app
+========================================================
+
+1. Launch the app
+2. On the menu drop down, select the three different attributes of the cars
+3. Choose the number of clusters the cars will be group into
+4. Examine the output plot
+
+Desired Output - Cluster based on CYL and MPG
+========================================================
+This is a static example of clustering the cars based on the MPG and Cylinder attributes:
+
+```{r, echo=FALSE}
+library(tidyverse)
+# Cluster cars based on MPG and Cylinder
+df <- mtcars %>% select(mpg, cyl)
+
+#3 clusters
+c <- kmeans(df, 3)
+
+#make plots
+ggplot(data = df) + geom_point(aes(y = mpg, x = cyl), col = c$cluster)+
+  ggtitle('Mtcars Cluster on MPG/CYL (3 clusters)')
+```
+
+
+
+
